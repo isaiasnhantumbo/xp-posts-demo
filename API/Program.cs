@@ -1,10 +1,14 @@
 using System.Text;
 using API.Middleware;
 using Application.Interfaces;
+using Application.Posts;
 using Application.Users;
+using FluentValidation.AspNetCore;
 using Infrastructure.Security;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.IdentityModel.Tokens;
@@ -20,7 +24,14 @@ builder.Services.AddDbContext<DataContext>(options => {
     options.UseNpgsql(connString);
 });
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(config =>
+{
+    var policy = new AuthorizationPolicyBuilder()
+        .RequireAuthenticatedUser()
+        .Build();
+    config.Filters.Add(new AuthorizeFilter(policy));
+}).AddFluentValidation(cfg =>
+    cfg.RegisterValidatorsFromAssemblyContaining<CreatePost.CreatePostCommand>());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
