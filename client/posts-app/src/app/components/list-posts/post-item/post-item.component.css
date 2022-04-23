@@ -1,0 +1,8 @@
+:host {
+  display: block;
+  border: 1px solid dodgerblue;
+  border-radius: 3px;
+  box-shadow: 3px 3px 2px #ccc;
+  margin: 20px 0;
+  padding: 10px;
+}

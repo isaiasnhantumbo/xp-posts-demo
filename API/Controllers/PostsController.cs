@@ -1,5 +1,6 @@
 using Application.Posts;
 using Domain;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
@@ -7,6 +8,7 @@ namespace API.Controllers;
 public class PostsController : BaseController
 {
     [HttpGet]
+    [AllowAnonymous]
     public async Task<ActionResult<List<Post>>> ListAllPosts()
     {
         return await Mediator.Send(new ListAllPosts.ListAllPostsQuery());
