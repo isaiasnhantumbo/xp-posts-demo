@@ -18,9 +18,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-var connString =  builder.Configuration.GetConnectionString("DefaultConnection");
+var connString = builder.Configuration.GetConnectionString("PostGreSql");
 
-builder.Services.AddDbContext<DataContext>(options => { 
+builder.Services.AddDbContext<DataContext>(options =>
+{
     options.UseNpgsql(connString);
 });
 
@@ -62,8 +63,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("MyCors", builder =>
-        builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+    options.AddPolicy("MyCors", policyBuilder =>
+        policyBuilder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 });
 
 var app = builder.Build();

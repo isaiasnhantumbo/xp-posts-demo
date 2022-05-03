@@ -1,12 +1,20 @@
-<form (ngSubmit)="onSubmit()" #addPostForm="ngForm">
-  <h1 class="h3 mb-3 fw-normal">Create Post</h1>
+<form (ngSubmit)="handleEditPost()" #editPostForm="ngForm">
+  <h1 class="h3 mb-3 fw-normal">Edit Post</h1>
   <div class="form-floating">
+    <input
+      type="hidden"
+      class="form-control"
+      [(ngModel)]="post.id"
+      #id
+      name="id"
+      required
+    />
     <input
       type="text"
       class="form-control"
       id="floatingInput"
       placeholder="my title"
-      [(ngModel)]="addPostData.title"
+      [(ngModel)]="post.title"
       #title
       name="title"
       required
@@ -19,7 +27,7 @@
       class="form-control"
       id="floatingInput"
       placeholder="my content...."
-      [(ngModel)]="addPostData.content"
+      [(ngModel)]="post.content"
       #content
       name="content"
       required
@@ -32,7 +40,7 @@
       class="form-control"
       id="floatingInput"
       placeholder="https://imagem.com/"
-      [(ngModel)]="addPostData.imageUrl"
+      [(ngModel)]="post.imageUrl"
       #imageUrl
       name="imageUrl"
       required
@@ -40,10 +48,10 @@
     <label for="flotingInput">Image Url</label>
   </div>
   <button
-    [disabled]="!addPostForm.form.valid"
+    [disabled]="!editPostForm.form.valid"
     class="mt-5 w-100 btn btn-lg btn-outline-primary"
     type="submit"
   >
-    Submit
+    Update
   </button>
 </form>

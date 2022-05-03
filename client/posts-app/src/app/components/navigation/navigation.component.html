@@ -13,7 +13,7 @@
       </ul>
       <form class="d-flex">
         <a *ngIf="!userService.isAuthenticated()" routerLink="/signin" class="btn btn-primary">Sign In</a>
-        <a *ngIf="!userService.isAuthenticated()" routerLink="/signup" class="btn btn-primary">Sign Up</a>
+        <a *ngIf="!userService.isAuthenticated()" routerLink="/signup" class="btn btn-primary ms-3">Sign Up</a>
         <a *ngIf="userService.isAuthenticated() === true"
            class="btn btn-danger"
            (click)="onLogout()"

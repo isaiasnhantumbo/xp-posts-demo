@@ -11,7 +11,7 @@
       #email
       name="email"
       required
-    >
+    />
     <label for="floatingInput">Email address</label>
   </div>
   <div class="form-floating">
@@ -24,13 +24,16 @@
       [(ngModel)]="singInData.password"
       #password
       required
-    >
+    />
     <label for="floatingPassword">Password</label>
   </div>
 
-  <button [disabled]="!singInForm.form.valid"
-          class="w-100 btn btn-lg btn-primary"
-          type="submit"
-  >Sign In</button>
+  <button
+    [disabled]="!singInForm.form.valid"
+    class="w-100 btn btn-lg btn-primary"
+    type="submit"
+  >
+    Sign In
+  </button>
 </form>
-<hr>
+<hr />

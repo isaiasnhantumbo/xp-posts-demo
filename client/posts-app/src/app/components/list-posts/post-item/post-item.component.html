@@ -1,5 +1,20 @@
-<div *ngIf="post !== null">
-  <h1>Title: {{post.title}}</h1>
-  <p>Content: {{post.content}}</p>
-  <p>Created At: {{post.dateCreated | date}}</p>
+<div
+  class="d-flex flex-row justify-content-between align-items-center"
+>
+  <div>
+    <h1>Title: {{ post.title }}</h1>
+    <p>Content: {{ post.content }}</p>
+    <p>Created At: {{ post.dateCreated | date }}</p>
+  </div>
+  <div
+    class="d-flex flex-column"
+    *ngIf="postService.isUserOwnerOfPost(post.author?.id)"
+  >
+    <button class="btn btn-light mb-3" (click)="navigateToEditPost(post.id)">
+      <img src="/assets/edit-icon.svg" alt="edit post" />
+    </button>
+    <button class="btn btn-danger" (click)="handleDeletePost(post.id)">
+      <img src="/assets/delete-icon.svg" alt="delete post" />
+    </button>
+  </div>
 </div>

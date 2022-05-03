@@ -1,8 +1,9 @@
-import {IUser} from "./user";
-
-export class IPost {
-  id: number | undefined;
-  title: string | undefined;
-  content: string | undefined;
-  dateCreated: Date | undefined;
+import { IUser } from './user';
+export interface IPost {
+  id: number;
+  title: string;
+  content: string;
+  dateCreated: Date;
+  imageUrl: string;
+  author?: IUser;
 }
