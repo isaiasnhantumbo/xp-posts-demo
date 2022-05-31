@@ -1243,6 +1243,27 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@ngrx/effects@^13.2.0":
+  version "13.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-13.2.0.tgz#36aba5af45ac034419509f799ed70acdb80228b1"
+  integrity sha512-HmWggpl3xGQFfUzON/uel5jSyUWsrGZsR5qR/oFLGjPRWzwKfdHrl0OcBl5IhFgFxT74cAi9F4JTICUytGRbFA==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/store-devtools@^13.2.0":
+  version "13.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-13.2.0.tgz#69193e32aee141397d7d2c11c43278e3fa5191e7"
+  integrity sha512-k1NifkR/4OjbjAxauVZODCsgs2owMJXvEX2XoTWth7zscbHE8L3pLd0k1ox5pMPUEqWIptWTaJDzYqnQSoJaaw==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/store@^13.2.0":
+  version "13.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-13.2.0.tgz#43d4e9bf064808dd546ef1edbbcd08c2a8e0871a"
+  integrity sha512-3wlGMkfe0EXsiS6E6W0wCksuGapa5Z6JVFvKQMHFpXZ3XeixXKlULnemlcdMT7Yrnry+CGOtRHqkmKxLoQzhTw==
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngtools/webpack@13.0.4":
   version "13.0.4"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-13.0.4.tgz#9389c95fdbefb48fe061a30d81aab2f83bbf2081"
@@ -6060,7 +6081,7 @@ tslib@^1.9.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
-tslib@^2.1.0, tslib@^2.3.0:
+tslib@^2.0.0, tslib@^2.1.0, tslib@^2.3.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.0.tgz#7cecaa7f073ce680a05847aa77be941098f36dc3"
   integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==

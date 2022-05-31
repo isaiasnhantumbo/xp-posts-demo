@@ -1,3 +1,4 @@
+import { reducers } from './store/reducers/index';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -17,6 +18,11 @@ import { ListPostsComponent } from './components/list-posts/list-posts.component
 import { PostsService } from './services/posts.service';
 import { PostItemComponent } from './components/list-posts/post-item/post-item.component';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { PostsEffects } from './store/effects/posts.effects';
 
 @NgModule({
   declarations: [
@@ -35,6 +41,12 @@ import { EditPostComponent } from './components/edit-post/edit-post.component';
     RouterModule.forRoot(routes),
     FormsModule,
     HttpClientModule,
+    StoreModule.forRoot(reducers, {}),
+    EffectsModule.forRoot([PostsEffects]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
   ],
   providers: [UserService, AuthGuardGuard, PostsService],
   bootstrap: [AppComponent],
